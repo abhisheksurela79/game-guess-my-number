@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Press Start 2P', sans-serif;
+  color: #eee;
+  background-color: #222;
+  /* background-color: #60b347; */
+}
+
+nav {
+    margin: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+main {
+  height: 65vh;
+  color: #eee;
+}
+
+.container-1 {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 13rem;
+}
+
+.right {
+  font-size: 2rem;
+  text-align: center;
+}
+
+
+
+/* ELEMENTS STYLE */
+h1 {
+  font-size: 3.5rem;
+  text-align: center;
+  margin: 5rem 0;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]:focus {
+    outline: 1px solid #67f562;
+}
+
+.number {
+    text-align: center;
+    align-items: center;
+    background: #eee;
+    color: #333;
+    font-size: 6rem;
+    padding: 0.5rem;
+
+}
+
+.right-number {
+    text-align: center;
+    align-items: center;
+    font-size: 6rem;
+    padding: 0.5rem;
+    background: rgb(5, 231, 43);
+    color: rgb(254, 254, 255);
+}
+.game-over {
+    text-align: center;
+    align-items: center;
+    font-size: 6rem;
+    padding: 0.5rem;
+    background: rgb(231, 5, 62);
+    color: rgb(254, 254, 255);
+}
+
+.between {
+    font-size: 1.4rem;
+}
+
+.guess {
+  background: none;
+  border: 4px solid #eee;
+  font-family: inherit;
+  color: inherit;
+  font-size: 5rem;
+  padding: 2.5rem;
+  width: 25rem;
+  text-align: center;
+  display: block;
+  margin-bottom: 3rem;
+}
+
+.btn {
+  border: none;
+  background-color: #eee;
+  color: #222;
+  font-size: 2rem;
+  font-family: inherit;
+  padding: 2rem 6.5rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ccc;
+}
+
+.message {
+  margin-bottom: 8rem;
+}
+
+.label-score {
+  margin-bottom: 2rem;
+}
+
+@media only screen and (min-width: 1552px) and (max-width: 1867px) {
+    .container-1 {
+        justify-content: space-between;
+        margin-right: 35rem;
+        margin-left: 35rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (min-width: 1341px) and (max-width: 1552px) {
+    .container-1 {
+        justify-content: space-between;
+        margin-right:25rem;
+        margin-left: 25rem;
+    }
+
+    h1 {
+        font-size: 2.6rem;
+    }
+}
+
+@media only screen and (min-width: 1194px) and (max-width: 1341px) {
+    .container-1 {
+        justify-content: space-between;
+        margin-right:15rem;
+        margin-left: 15rem;
+    }
+
+}
+
+@media only screen and (min-width: 1194px) and (max-width: 1340px) {
+    .container-1 {
+        justify-content: space-between;
+        margin-right:25rem;
+        margin-left: 25rem;
+    }
+
+    h1 {
+        font-size: 2.6rem;
+    }
+
+}
+
+@media only screen and (min-width: 0px) and (max-width: 1194px) {
+    .btn {
+        font-size: 1.9rem;
+        padding: 2rem 4.4rem;
+    }
+
+    .between {
+        font-size: 1.4rem
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .number {
+        font-size: 3.5rem;
+    }
+
+    .guess {
+        border: 3px solid #eee;
+        font-size: 3rem;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .check {
+        padding: 2rem 6.69rem
+    }
+
+
+
+    .message {
+        margin-bottom: 8rem;
+        height: 0rem;
+        /* font-size: 1.5rem; */
+    }
+    
+    
+    .container-1 {
+        justify-content: space-between;
+        margin-right:15rem;
+        margin-left: 15rem;
+    }
+
+    .right {
+        font-size: 1.5rem;
+    }
+
+}
+
+@media only screen and (min-width: 673px) and (max-width: 911px) {
+    .btn {
+        font-size: 1.2rem;
+        padding: 1.6rem 4rem;
+    }
+
+    .between {
+        font-size: 1rem
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .number {
+        font-size: 3rem;
+    }
+
+    .guess {
+        border: 3px solid #eee;
+        font-size: 3rem;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+        width: 20.6rem;
+    }
+
+    .check {
+        padding: 1.7rem 6.69rem
+    }
+
+    
+    .container-1 {
+        justify-content: space-between;
+        margin-right:10rem;
+        margin-left: 10rem;
+    }
+
+    .right {
+        font-size: 1.2rem;
+    }
+
+}
+
+@media only screen and (min-width: 547px) and (max-width: 673px) {
+    .btn {
+        font-size: 1rem;
+        padding: 1.2rem 3rem;
+    }
+
+    .between {
+        font-size: 0.9rem
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .number {
+        font-size: 3rem;
+    }
+
+    .guess {
+        border: 2px solid #eee;
+        font-size: 2rem;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+        width: 16rem;
+    }
+
+    .check {
+        padding: 1.5rem 5rem
+    }
+
+    
+    .container-1 {
+        justify-content: space-between;
+        margin-right: 5rem;
+        margin-left: 5rem;
+    }
+
+    .right {
+        font-size: 1.1rem;
+    }
+
+}
+
+
+@media only screen and (min-width: 0px) and (max-width: 547px) {
+
+    .btn {
+        font-size: 1rem;
+        padding: 1.2rem 3rem;
+    }
+
+    .between {
+        font-size: 0.9rem
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .number {
+        font-size: 3rem;
+    }
+
+    .guess {
+        border: 2px solid #eee;
+        font-size: 2rem;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+        width: 16rem;
+    }
+
+    .check {
+        padding: 1.5rem 5rem
+    }
+
+    
+    .container-1 {
+        flex-direction: column;
+        margin-right: 0rem;
+        margin-left: 0rem;
+        justify-content: center;
+        margin-top: 5rem;
+    }
+
+    .left {
+        margin: auto;
+        order: 1
+    }
+
+    .message {
+        margin-bottom: 7rem;
+    }
+
+    .label-score {
+        margin-bottom: 3rem;
+    }
+
+    .label-highscore {
+        margin-bottom: 2rem;
+    }
+
+
+    .right {
+        margin-top: 2rem;
+        font-size: 1.1rem;
+        order: 0
+    }
+
+
+
+}
+
+@media only screen and (min-width: 0px) and (max-width: 313px) {
+
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .between {
+        margin-top: 2rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 1.2rem 3rem;
+    }
+
+    .between {
+        font-size: 0.9rem
+    }
+
+    h1 {
+        font-size: 1.4rem;
+        position: 5rem;
+    }
+
+    .number {
+        font-size: 2rem;
+    }
+
+    .guess {
+        border: 2px solid #eee;
+        font-size: 2rem;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+        width: 16rem;
+    }
+
+    .check {
+        padding: 1.5rem 5rem
+    }
+
+    
+    .container-1 {
+        flex-direction: column;
+        margin-right: 0rem;
+        margin-left: 0rem;
+        justify-content: center;
+        margin-top: 5rem;
+    }
+
+    .left {
+        margin: auto;
+        order: 1
+    }
+
+    .message {
+        margin-bottom: 7rem;
+    }
+
+    .label-score {
+        margin-bottom: 3rem;
+    }
+
+    .label-highscore {
+        margin-bottom: 2rem;
+    }
+
+
+    .right {
+        margin-top: 2rem;
+        font-size: 1.1rem;
+        order: 0
+    }
+
+}
