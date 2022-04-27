@@ -39,9 +39,10 @@ checkBtn.addEventListener('click', ()=> {
 
 
         } else if (Number(guess.value) !== randomNumber) {
-            if (!newPlayer && chances <= 0){
+            if (!newPlayer && chances <= 0 && Number(guess.value) !== randomNumber){
                 secretNumber.classList.remove("right-number")
                 secretNumber.classList.add("game-over")
+                chances--
                 score.innerHTML = chances
                 message.innerHTML = "💥 Game Over"
 
