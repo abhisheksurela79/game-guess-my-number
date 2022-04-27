@@ -1,11 +1,10 @@
 "use strict";
 
-let randomNumber = Number(((Math.random()*20) + 1).toFixed(0));
-let chances = 0;
+let randomNumber = Math.floor(Math.random() * 20) + 1;;
+let chances = 5;
 let newPlayer = true;
 
 let secretNumber = document.querySelector('.number');
-let guess = document.querySelector('.guess');
 let checkBtn = document.querySelector('.check');
 
 let message = document.querySelector('.message');
@@ -16,59 +15,94 @@ let playAgain = document.querySelector('.again');
 
 
 
-guess.addEventListener('keypress', (event)=> {
+document.querySelector('.guess').addEventListener('keypress', (event)=> {
     if (event.key === "Enter") {
         event.preventDefault();
         checkBtn.click();
     }
 })
 
-
-checkBtn.addEventListener('click', ()=> {
-    if (Number(guess.value)){
-        if (Number(guess.value) === randomNumber) {
-            newPlayer = false
-            chances++
-            secretNumber.classList.remove("game-over")
-            secretNumber.classList.add("right-number")
-            message.innerHTML = "🎉 Correct Number"
-            score.innerHTML = chances
-            secretNumber.innerHTML = randomNumber
-            chances > Number(highScore.innerHTML) ? highScore.innerHTML = chances : highScore.innerHTML = highScore.innerHTML
-            randomNumber = Number(((Math.random()*20) + 1).toFixed(0));
+playAgain.addEventListener('click', ()=> {
+    secretNumber.classList.remove("right-number");
+    secretNumber.classList.remove("game-over");
+    secretNumber.classList.add("number");
+    randomNumber = Math.floor(Math.random() * 20) + 1;
+    chances = 0;
+    score.innerHTML = chances;
+    newPlayer = true;
+    secretNumber.innerHTML = "?";
+})
 
 
-        } else if (Number(guess.value) !== randomNumber) {
-            if (!newPlayer && chances <= 0 && Number(guess.value) !== randomNumber){
-                secretNumber.classList.remove("right-number")
-                secretNumber.classList.add("game-over")
-                chances--
-                score.innerHTML = chances
-                message.innerHTML = "💥 Game Over"
+function correctAnswer() {
+    const guess = Number(document.querySelector('.guess').value)
+    newPlayer = false;
+    chances++;
+    secretNumber.classList.remove("game-over");
+    secretNumber.classList.add("right-number");
+    message.innerHTML = "🎉 Correct Number";
+    score.innerHTML = chances;
+    secretNumber.innerHTML = randomNumber;
+    chances > Number(highScore.innerHTML) ? highScore.innerHTML = chances : highScore.innerHTML = highScore.innerHTML;
+    randomNumber = Math.floor(Math.random() * 20) + 1;;
+}
 
-            } else {
-                secretNumber.innerHTML = "?"
-                chances--
-                secretNumber.classList.remove("right-number")
-                secretNumber.classList.remove("game-over")
-                secretNumber.classList.add("number")
-                score.innerHTML = chances
-                randomNumber > Number(guess.value) ? message.innerHTML = "📉 Too low!" :  message.innerHTML = "📈 Too high!"
-            }
+function wrongAnswer() {
+    const guess = Number(document.querySelector('.guess').value)
+    secretNumber.innerHTML = "?";
+    secretNumber.classList.remove("right-number");
+    secretNumber.classList.remove("game-over");
+    secretNumber.classList.add("number");
+    score.innerHTML = chances;
+    randomNumber > guess ? message.innerHTML = "📉 Too low!" :  message.innerHTML = "📈 Too high!";
+}
+
+function invalidNumber() {
+    message.innerHTML = "⛔ Invalid Number!"
+}
+
+
+checkBtn.addEventListener('click', ()=>{
+    const guess = Number(document.querySelector('.guess').value)
+    
+    if (newPlayer && guess >= 1 && guess <= 20) {
+        if (guess === randomNumber) {
+            correctAnswer()
 
         }
-        
-    } else{
-        message.innerHTML = "⛔ Invalid Number!"
+        else if (guess <= 0 && guess > 20){
+            invalidNumber()
+
+        }
+        else{
+            wrongAnswer()
+
+        }
+
+    }
+    else if (!newPlayer && guess >= 1 && guess <= 20){
+        if (guess === randomNumber) {
+            correctAnswer()
+
+        }
+        else if (Number(score.innerHTML) <= 0){
+            // Player started losing the game
+            secretNumber.classList.remove("right-number")
+            secretNumber.classList.add("game-over")
+            chances--
+            score.innerHTML = chances
+            randomNumber > guess ? message.innerHTML = "📉 Too low!" :  message.innerHTML = "📈 Too high!"
+        }
+
+        else{
+            chances--
+            wrongAnswer()
+        }
+
+    }
+
+    else{
+        invalidNumber()
     }
 
 })
-
-playAgain.addEventListener('click', ()=> {
-    secretNumber.classList.remove("right-number")
-    secretNumber.classList.remove("game-over")
-    secretNumber.classList.add("number")
-    randomNumber = Number(((Math.random()*20) + 1).toFixed(0));
-    secretNumber.innerHTML = "?"
-})
-
